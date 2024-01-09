@@ -32,7 +32,7 @@ class Pounce extends Component
      */
     public function openModal($component, $arguments = [], $modalAttributes = []): void
     {
-        $requiredInterface = \Awcodes\Groundhog\Contracts\PounceComponent::class;
+        $requiredInterface = \Awcodes\Pounce\Contracts\PounceComponent::class;
         $componentClass = app(ComponentRegistry::class)->getClass($component);
         $reflect = new ReflectionClass($componentClass);
 
