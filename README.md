@@ -37,10 +37,7 @@ return [
 
 ## Usage
 
-```php
-$pounce = new Awcodes\Groundhog();
-echo $pounce->echoPhrase('Hello, Awcodes!');
-```
+[//]: # (TODO: Write usage instructions here)
 
 ## Testing
 
