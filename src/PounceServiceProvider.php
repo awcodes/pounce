@@ -22,7 +22,10 @@ class PounceServiceProvider extends PackageServiceProvider
         $package
             ->name(static::$name)
             ->hasConfigFile()
-            ->hasViews();
+            ->hasViews()
+            ->hasCommands([
+                Commands\MakeModalCommand::class,
+            ]);
     }
 
     public function packageBooted(): void

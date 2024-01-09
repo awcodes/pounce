@@ -1,0 +1,15 @@
+<div>
+    <x-pounce::header>
+        {{-- Modal Heading --}}
+    </x-pounce::header>
+
+    <x-pounce::close-button />
+
+    <x-pounce::content>
+        {{-- Modal Content --}}
+    </x-pounce::content>
+
+    <x-pounce::footer>
+        {{-- Modal Footer --}}
+    </x-pounce::footer>
+</div>

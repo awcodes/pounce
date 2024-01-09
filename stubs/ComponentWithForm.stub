@@ -1,0 +1,61 @@
+<?php
+
+namespace {{ namespace }};
+
+use Awcodes\Pounce\Enums\Alignment;
+use Awcodes\Pounce\PounceComponent;
+use Filament\Actions\Action;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Form;
+use Filament\Support\Enums\MaxWidth;
+use Illuminate\Contracts\View\View;
+
+class {{ class }} extends PounceComponent implements HasForms, HasActions
+{
+    use InteractsWithActions;
+    use InteractsWithForms;
+
+    public ?array $data = [];
+
+    public static function getAlignment(): Alignment
+    {
+        return Alignment::MiddleCenter;
+    }
+
+    public static function isSlideOver(): bool
+    {
+        return false;
+    }
+
+    public static function getMaxWidth(): MaxWidth
+    {
+        return MaxWidth::Medium;
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form->schema([
+            //
+        ])->statePath('data');
+    }
+
+    public function saveAction(): Action
+    {
+        return Action::make('save')
+            ->color('primary')
+            ->action(fn () => $this->save());
+    }
+
+    public function save(): void
+    {
+        dd($this->form->getState());
+    }
+
+    public function render(): View
+    {
+        return view('{{ view }}');
+    }
+}

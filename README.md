@@ -79,7 +79,15 @@ return [
 
 ## Usage
 
-[//]: # (TODO: Write usage instructions here)
+### Creating a modal
+
+#### With the command line
+
+#### Manually
+
+### Opening a modal
+
+### Closing a modal
 
 ## Testing
 
