@@ -83,11 +83,71 @@ return [
 
 #### With the command line
 
+For convince, the plugin offers a scaffolding command to create new modals. This will create a class file in `App\Livewire` or your configured Livewire app directory. It will also create a view at `resources/views/livewire`.
+
+The `--form` flag will scaffold the modal with some defaults for making a modal that uses Filament's form methods.
+
+```bash
+php artisan make:pounce {name?} {--form} {--F|force}
+```
+
 #### Manually
 
-### Opening a modal
+To manually create a modal you simply need to run the Livewire make command and add extend the `PounceComponent` class.
 
-### Closing a modal
+```bash
+php artisan make:livewire CustomModal
+```
+
+```php
+namespace App\Http\Livewire;
+
+use Awcodes\Pounce\PounceComponent;
+
+class CustomModal extends PounceComponent
+{
+    public function render()
+    {
+        return view('livewire.custom-modal');
+    }
+}
+```
+
+> [!NOTE]
+> Pounce uses all the same conventions and usage as Wire Elements Modal, the only thing to be aware of is to open a modal Pounce uses the `pounce` event and to close a modal it uses the `unPounce` event.
+
+See [Wire Elements Modal on GitHub](https://github.com/wire-elements/modal/blob/main/README.md#opening-a-modal) for complete usage instructions.
+
+### Modal Alignment
+
+```php
+use Awcodes\Pounce\Enums\Alignment;
+
+public static function getAlignment(): Alignment
+{
+    return Alignment::TopStart;
+}
+```
+
+### Modal Width
+
+```php
+use Filament\Support\Enums\MaxWidth;
+
+public static function getMaxWidth(): MaxWidth
+{
+    return MaxWidth::Medium;
+}
+```
+
+### Slide Overs
+
+```php
+public static function isSlideOver(): bool
+{
+    return true;
+}
+```
 
 ## Testing
 

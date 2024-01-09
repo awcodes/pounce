@@ -14,7 +14,7 @@ class MakeModalCommand extends Command
 
     protected $description = 'Create a new Pounce modal';
 
-    protected $signature = 'make:pounce {name?} {--form?} {--F|force}';
+    protected $signature = 'make:pounce {name?} {--form} {--F|force}';
 
     public function handle(): int
     {
@@ -31,7 +31,7 @@ class MakeModalCommand extends Command
             ->trim(' ')
             ->replace('/', '\\');
 
-        $withForm = confirm(
+        $withForm = $this->option('form') || confirm(
             label: 'Use form template?',
             default: false
         );
