@@ -2,7 +2,7 @@
 
 namespace Awcodes\Pounce;
 
-use Awcodes\Pounce\Testing\TestsGroundhog;
+use Awcodes\Pounce\Testing\TestsPounce;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Filesystem\Filesystem;
@@ -40,7 +40,7 @@ class PounceServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsGroundhog());
+        Testable::mixin(new TestsPounce());
 
         Livewire::component('pounce', Pounce::class);
     }

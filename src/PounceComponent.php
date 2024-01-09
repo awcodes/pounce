@@ -27,7 +27,7 @@ abstract class PounceComponent extends Component implements Contract
 
     public static function getMaxWidth(): MaxWidth
     {
-        return MaxWidth::Medium;
+        return MaxWidth::from(config('pounce.modal_max_width')) ?? MaxWidth::Medium;
     }
 
     public function destroySkippedModals(): self
@@ -77,27 +77,27 @@ abstract class PounceComponent extends Component implements Contract
 
     public static function closeModalOnClickAway(): bool
     {
-        return true;
+        return config('pounce.close_modal_on_click_away', true);
     }
 
     public static function closeModalOnEscape(): bool
     {
-        return true;
+        return config('pounce.close_modal_on_escape', true);
     }
 
     public static function closeModalOnEscapeIsForceful(): bool
     {
-        return true;
+        return config('pounce.close_modal_on_escape_is_forceful', true);
     }
 
     public static function dispatchCloseEvent(): bool
     {
-        return true;
+        return config('pounce.dispatch_close_event', false);
     }
 
     public static function destroyOnClose(): bool
     {
-        return false;
+        return config('pounce.destroy_on_close', false);
     }
 
     private function emitModalEvents(array $events): void
