@@ -18,16 +18,16 @@ window.pounceComponent = () => {
             }
 
             let force = this.getActiveComponentModalAttribute('closeOnEscapeIsForceful') === true;
-            this.closeModal(force);
+            this.unPounce(force);
         },
         closeModalOnClickAway(trigger) {
             if (this.getActiveComponentModalAttribute('closeOnClickAway') === false) {
                 return;
             }
 
-            this.closeModal(true);
+            this.unPounce(true);
         },
-        closeModal(force = false, skipPreviousModals = 0, destroySkipped = false) {
+        unPounce(force = false, skipPreviousModals = 0, destroySkipped = false) {
             if(this.show === false) {
                 return;
             }
@@ -79,8 +79,6 @@ window.pounceComponent = () => {
             if (this.activeComponent === false) {
                 this.activeComponent = id
                 this.showActiveComponent = true;
-                // this.modalAlignment = this.getActiveComponentModalAttribute('alignmentClass');
-                // this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
             } else {
                 this.showActiveComponent = false;
 
@@ -89,8 +87,6 @@ window.pounceComponent = () => {
                 setTimeout(() => {
                     this.activeComponent = id;
                     this.showActiveComponent = true;
-                    // this.modalAlignment = this.getActiveComponentModalAttribute('alignmentClass');
-                    // this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
                 }, 300);
             }
 
@@ -142,12 +138,9 @@ window.pounceComponent = () => {
             }
         },
         init() {
-            // this.modalAlignment = this.getActiveComponentModalAttribute('alignmentClass');
-            // this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
-
             this.listeners.push(
-                Livewire.on('closeModal', (data) => {
-                    this.closeModal(data?.force ?? false, data?.skipPreviousModals ?? 0, data?.destroySkipped ?? false);
+                Livewire.on('unPounce', (data) => {
+                    this.unPounce(data?.force ?? false, data?.skipPreviousModals ?? 0, data?.destroySkipped ?? false);
                 })
             );
 

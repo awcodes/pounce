@@ -10,20 +10,20 @@ class PouncePlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'pounce';
+        return 'pouncePlugin';
     }
 
     public function register(Panel $panel): void
     {
-        //
+        $panel->renderHook(
+            name: 'panels::body.end',
+            hook: fn (): string => Blade::render("@livewire('pounce')")
+        );
     }
 
     public function boot(Panel $panel): void
     {
-        $panel->renderHook(
-            name: 'panels::body.end',
-            hook: fn (): string => Blade::render('<x-livewire::pounce')
-        );
+        //
     }
 
     public static function make(): static

@@ -2,10 +2,10 @@
 
 namespace Awcodes\Pounce;
 
+use Awcodes\Pounce\Contracts\PounceComponent as Contract;
 use Awcodes\Pounce\Enums\Alignment;
 use Filament\Support\Enums\MaxWidth;
 use Livewire\Component;
-use Awcodes\Pounce\Contracts\PounceComponent as Contract;
 
 abstract class PounceComponent extends Component implements Contract
 {
@@ -59,10 +59,10 @@ abstract class PounceComponent extends Component implements Contract
         return $this;
     }
 
-    public function closeModal(): void
+    public function unPounce(): void
     {
         $this->dispatch(
-            event:'closeModal',
+            event: 'unPounce',
             force: $this->forceClose,
             skipPreviousModals: $this->skipModals,
             destroySkipped: $this->destroySkipped
@@ -72,7 +72,7 @@ abstract class PounceComponent extends Component implements Contract
     public function closeModalWithEvents(array $events): void
     {
         $this->emitModalEvents($events);
-        $this->closeModal();
+        $this->unPounce();
     }
 
     public static function closeModalOnClickAway(): bool

@@ -30,7 +30,7 @@ class Pounce extends Component
      * @throws ReflectionException
      * @throws Exception
      */
-    public function openModal($component, $arguments = [], $modalAttributes = []): void
+    public function pounce($component, $arguments = [], $modalAttributes = []): void
     {
         $requiredInterface = \Awcodes\Pounce\Contracts\PounceComponent::class;
         $componentClass = app(ComponentRegistry::class)->getClass($component);
@@ -40,7 +40,7 @@ class Pounce extends Component
             throw new Exception("[{$componentClass}] does not implement [{$requiredInterface}] interface.");
         }
 
-        $id = md5($component.serialize($arguments));
+        $id = md5($component . serialize($arguments));
 
         $arguments = collect($arguments)
             ->merge($this->resolveComponentProps($arguments, new $componentClass()))
@@ -90,10 +90,10 @@ class Pounce extends Component
             return $parameterValue;
         }
 
-        if(enum_exists($parameterClassName)){
+        if (enum_exists($parameterClassName)) {
             $enum = $parameterClassName::tryFrom($parameterValue);
 
-            if($enum !== null){
+            if ($enum !== null) {
                 return $enum;
             }
         }
@@ -128,7 +128,7 @@ class Pounce extends Component
     public function getListeners(): array
     {
         return [
-            'openModal',
+            'pounce',
             'destroyComponent',
         ];
     }

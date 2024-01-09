@@ -2,6 +2,7 @@
 
 namespace Awcodes\Pounce;
 
+use Awcodes\Pounce\Testing\TestsGroundhog;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Filesystem\Filesystem;
@@ -9,7 +10,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Awcodes\Pounce\Testing\TestsGroundhog;
 
 class PounceServiceProvider extends PackageServiceProvider
 {
