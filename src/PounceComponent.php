@@ -15,21 +15,6 @@ abstract class PounceComponent extends Component implements Contract
 
     public bool $destroySkipped = false;
 
-    public static function getAlignment(): Alignment
-    {
-        return Alignment::MiddleCenter;
-    }
-
-    public static function isSlideOver(): bool
-    {
-        return false;
-    }
-
-    public static function getMaxWidth(): MaxWidth
-    {
-        return MaxWidth::from(config('pounce.modal_max_width')) ?? MaxWidth::Medium;
-    }
-
     public function destroySkippedModals(): self
     {
         $this->destroySkipped = true;
@@ -98,6 +83,21 @@ abstract class PounceComponent extends Component implements Contract
     public static function destroyOnClose(): bool
     {
         return config('pounce.destroy_on_close', false);
+    }
+
+    public static function getAlignment(): Alignment
+    {
+        return Alignment::from(config('pounce.modal_alignment')) ?? Alignment::MiddleCenter;
+    }
+
+    public static function getMaxWidth(): MaxWidth
+    {
+        return MaxWidth::from(config('pounce.modal_max_width')) ?? MaxWidth::Medium;
+    }
+
+    public static function isSlideOver(): bool
+    {
+        return config('pounce.modal_slide_over', false);
     }
 
     private function emitModalEvents(array $events): void

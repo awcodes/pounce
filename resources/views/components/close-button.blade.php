@@ -1,4 +1,4 @@
-<div class="absolute end-4 top-4">
+<div {{ $attributes->class(['fi-modal-close absolute end-4 top-4']) }}>
     <x-filament::icon-button
         color="gray"
         icon="heroicon-o-x-mark"

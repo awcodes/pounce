@@ -12,6 +12,8 @@
 */
 return [
     'modal_max_width' => 'md',
+    'modal_alignment' => 'middle-center',
+    'modal_slide_over' => false,
     'close_modal_on_click_away' => true,
     'close_modal_on_escape' => true,
     'close_modal_on_escape_is_forceful' => true,
