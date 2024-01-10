@@ -3,9 +3,6 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/pounce.svg?style=flat-square)](https://packagist.org/packages/awcodes/pounce)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/pounce.svg?style=flat-square)](https://packagist.org/packages/awcodes/pounce)
 
-> [!CAUTION]
-> This package is in development and not intended for production yet.
-
 This plugin adds a global modal for usage in Filament and is a port of [Wire Elements Modal](https://github.com/wire-elements/modal). 
 
 ***Please star the original repo if you like this plugin.***
@@ -19,7 +16,7 @@ composer require awcodes/pounce
 ```
 
 > [!IMPORTANT]
-> If you have not set up a custom theme and are using a Filament Panels follow the instructions in the [Filament Docs](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) first.
+> If you have not set up a custom theme and are using Filament Panels follow the instructions in the Filament Docs for [creating a custom theme](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) first.
 
 After setting up your theme, add the plugin's views to your `tailwind.config.js` file and run `npm run dev` or `npm run build` to add the plugin styles to your theme.
 
