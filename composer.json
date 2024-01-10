@@ -1,6 +1,6 @@
 {
     "name": "awcodes/pounce",
-    "description": "Port of LivewireUI/modal for Filament",
+    "description": "A global modal/dialog plugin for Filament.",
     "keywords": [
         "awcodes",
         "laravel",
