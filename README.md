@@ -45,7 +45,7 @@ public function panel(Panel $panel): Panel
 
 If you are using stand-alone Filament packages you will need to manually add the plugin to any layouts where you intend to use it. This should go before the closing `body` tag, and you should only have one instance per page.
 
-```html
+```blade
 @livewire('pounce')
 ```
 
