@@ -20,6 +20,11 @@ class {{ class }} extends PounceComponent implements HasForms, HasActions
 
     public ?array $data = [];
 
+    public function mount(): void
+    {
+        $this->form->fill();
+    }
+
     public static function getAlignment(): Alignment
     {
         return Alignment::MiddleCenter;
