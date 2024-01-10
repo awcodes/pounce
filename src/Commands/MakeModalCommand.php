@@ -5,6 +5,7 @@ namespace Awcodes\Pounce\Commands;
 use Filament\Support\Commands\Concerns\CanManipulateFiles;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
+
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\text;
 
@@ -80,19 +81,19 @@ class MakeModalCommand extends Command
             return static::INVALID;
         }
 
-        $component = match($withForm) {
+        $component = match ($withForm) {
             true => 'ComponentWithForm',
             default => 'Component',
         };
 
-        $componentView = match($withForm) {
+        $componentView = match ($withForm) {
             true => 'ViewWithForm',
             default => 'View',
         };
 
         $this->copyStubToApp($component, $path, [
             'class' => $className,
-            'namespace' => str($namespace) . ($classNameSpace !== '' ? "\\{$classNameSpace}" : ""),
+            'namespace' => str($namespace) . ($classNameSpace !== '' ? "\\{$classNameSpace}" : ''),
             'view' => $viewName,
         ]);
 
