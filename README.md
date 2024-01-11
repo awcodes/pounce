@@ -137,7 +137,7 @@ public static function getAlignment(): Alignment
 Modal widths can be set using the enum cases found in Filament's `MaxWidth` enum. See [the MaxWidth enum](https://github.com/filamentphp/filament/blob/3.x/packages/support/src/Enums/MaxWidth.php) for all available options. This can also be set globally in the config file.
 
 ```php
-use Filament\Support\Enums\MaxWidth;
+use Awcodes\Pounce\Enums\MaxWidth;
 
 public static function getMaxWidth(): MaxWidth
 {
@@ -150,7 +150,7 @@ public static function getMaxWidth(): MaxWidth
 By default, all modals are standard pop-up modals. If you wish to use a slide over modal you can set the `getSlideDirection` method to one of the `SlideDirection` enum cases. This can also be set globally in the config file.
 
 ```php
-use Filament\Support\Enums\SlideDirection;
+use Awcodes\Pounce\Enums\SlideDirection;
 
 public static function getSlideDirection(): SlideDirection
 {
