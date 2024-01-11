@@ -29,7 +29,7 @@ class PounceAction extends StaticAction
         return Js::from('$wire.$dispatch(\'pounce\', { component: \'' . $this->getComponent() . '\', arguments: ' . $this->getOptions() . '})');
     }
 
-    public function arguments(array $arguments): static
+    public function arguments(?array $arguments): static
     {
         $this->arguments = $arguments;
 

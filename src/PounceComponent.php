@@ -4,7 +4,8 @@ namespace Awcodes\Pounce;
 
 use Awcodes\Pounce\Contracts\PounceComponent as Contract;
 use Awcodes\Pounce\Enums\Alignment;
-use Filament\Support\Enums\MaxWidth;
+use Awcodes\Pounce\Enums\MaxWidth;
+use Awcodes\Pounce\Enums\SlideDirection;
 use Livewire\Component;
 
 abstract class PounceComponent extends Component implements Contract
@@ -87,17 +88,22 @@ abstract class PounceComponent extends Component implements Contract
 
     public static function getAlignment(): Alignment
     {
-        return Alignment::from(config('pounce.modal_alignment')) ?? Alignment::MiddleCenter;
+        return config('pounce.modal_alignment', Alignment::MiddleCenter);
     }
 
     public static function getMaxWidth(): MaxWidth
     {
-        return MaxWidth::from(config('pounce.modal_max_width')) ?? MaxWidth::Medium;
+        return config('pounce.modal_max_width', MaxWidth::Medium);
     }
 
     public static function isSlideOver(): bool
     {
-        return config('pounce.modal_slide_over', false);
+        return static::getSlideDirection() != SlideDirection::None;
+    }
+
+    public static function getSlideDirection(): SlideDirection
+    {
+        return config('pounce.modal_slide_over', SlideDirection::None);
     }
 
     private function emitModalEvents(array $events): void

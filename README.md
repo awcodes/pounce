@@ -65,9 +65,9 @@ This is the contents of the published config file:
 
 ```php
 return [
-    'modal_max_width' => 'md',
-    'modal_alignment' => 'middle-center',
-    'modal_slide_over' => false,
+    'modal_max_width' => \Awcodes\Pounce\Enums\MaxWidth::Medium,
+    'modal_alignment' => \Awcodes\Pounce\Enums\Alignment::MiddleCenter,
+    'modal_slide_over' => \Awcodes\Pounce\Enums\SlideDirection::None,
     'close_modal_on_click_away' => true,
     'close_modal_on_escape' => true,
     'close_modal_on_escape_is_forceful' => true,
@@ -134,7 +134,7 @@ public static function getAlignment(): Alignment
 
 ### Modal Width
 
-Modal widths can be set using the enum cases found in Filament's `MaxWidth` enum. See [the MaxWidth enum](https://github.com/filamentphp/filament/blob/3.x/packages/support/src/Enums/MaxWidth.php) fora ll available options. This can also be set globally in the config file.
+Modal widths can be set using the enum cases found in Filament's `MaxWidth` enum. See [the MaxWidth enum](https://github.com/filamentphp/filament/blob/3.x/packages/support/src/Enums/MaxWidth.php) for all available options. This can also be set globally in the config file.
 
 ```php
 use Filament\Support\Enums\MaxWidth;
@@ -147,12 +147,23 @@ public static function getMaxWidth(): MaxWidth
 
 ### Slide Overs
 
-By default, all modals are standard pop-up modals. If you wish to use a slide over modal you can set the `isSlideOver` method to return `true`. This can also be set globally in the config file.
+By default, all modals are standard pop-up modals. If you wish to use a slide over modal you can set the `getSlideDirection` method to one of the `SlideDirection` enum cases. This can also be set globally in the config file.
+
+```php
+use Filament\Support\Enums\SlideDirection;
+
+public static function getSlideDirection(): SlideDirection
+{
+    return SlideDirection::Left;
+}
+```
+
+To open a normal modal with the slide features you will need to explicitly set the `isSlideOver` method to return `false`.
 
 ```php
 public static function isSlideOver(): bool
 {
-    return true;
+    return false;
 }
 ```
 
@@ -166,7 +177,7 @@ While you are free to use any blade view you wish, the plugin comes with a few p
         {{-- Modal Header --}}
     </x-pounce::header>
 
-    <x-pounce::close-button />
+    <x-pounce::close-button icon-color="white" /> // defaults to 'gray'
     
     <x-pounce::heading>
         {{-- Modal Heading --}}

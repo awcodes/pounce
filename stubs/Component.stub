@@ -3,9 +3,10 @@
 namespace {{ namespace }};
 
 use Awcodes\Pounce\Enums\Alignment;
+use Awcodes\Pounce\Enums\MaxWidth;
+use Awcodes\Pounce\Enums\SlideDirection;
 use Awcodes\Pounce\PounceComponent;
 use Illuminate\Contracts\View\View;
-use Filament\Support\Enums\MaxWidth;
 
 class {{ class }} extends PounceComponent
 {
@@ -14,9 +15,9 @@ class {{ class }} extends PounceComponent
         return Alignment::MiddleCenter;
     }
 
-    public static function isSlideOver(): bool
+    public static function getSlideDirection(): SlideDirection
     {
-        return false;
+        return SlideDirection::Right;
     }
 
     public static function getMaxWidth(): MaxWidth

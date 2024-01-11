@@ -50,14 +50,15 @@ class Pounce extends Component
             'name' => $component,
             'arguments' => $arguments,
             'modalAttributes' => array_merge([
-                'alignment' => $componentClass::getAlignment(),
+                'alignment' => $componentClass::getAlignment()->value,
                 'closeOnClickAway' => $componentClass::closeModalOnClickAway(),
                 'closeOnEscape' => $componentClass::closeModalOnEscape(),
                 'closeOnEscapeIsForceful' => $componentClass::closeModalOnEscapeIsForceful(),
                 'dispatchCloseEvent' => $componentClass::dispatchCloseEvent(),
                 'destroyOnClose' => $componentClass::destroyOnClose(),
-                'maxWidth' => $componentClass::getMaxWidth(),
-                'slideOver' => $componentClass::isSlideOver(),
+                'isSlideOver' => $componentClass::isSlideOver(),
+                'maxWidth' => $componentClass::getMaxWidth()->value,
+                'slideDirection' => $componentClass::getSlideDirection()->value,
             ], $modalAttributes),
         ];
 
