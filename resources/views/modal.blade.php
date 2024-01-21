@@ -67,13 +67,13 @@
                 'max-w-screen-2xl': modalWidth === 'screen-2xl',
                 'fixed inset-0 fade': modalWidth === 'screen',
                 'overflow-y-auto': isSlideOver,
-                'relative rounded-xl': ! isSlideOver,
+                'relative': ! isSlideOver,
                 'right-0 fixed slide-from-right': slideDirection === 'right',
                 'left-0 fixed slide-from-left': slideDirection === 'left',
                 'top-0 fixed slide-from-top': slideDirection === 'top',
                 'bottom-0 fixed slide-from-bottom': slideDirection === 'bottom',
                 'h-dvh': isSlideOver || (modalWidth === 'screen'),
-                'pop': ! (isSlideOver || (modalWidth === 'screen')),
+                'pop rounded-xl': ! (isSlideOver || (modalWidth === 'screen')),
             }"
         >
             @forelse($components as $id => $component)
