@@ -7,6 +7,8 @@ This plugin adds a global modal for usage in Filament and is a port of [Wire Ele
 
 ***Please star the original repo if you like this plugin.***
 
+<!-- [docs_start] -->
+
 ## Installation
 
 You can install the package via composer:
@@ -196,6 +198,8 @@ While you are free to use any blade view you wish, the plugin comes with a few p
     </x-pounce::footer>
 </div>
 ```
+
+<!-- [docs_end] -->
 
 ## Testing
 
